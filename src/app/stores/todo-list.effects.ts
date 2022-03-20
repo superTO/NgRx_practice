@@ -23,8 +23,44 @@ export class TodoListEffects {
     );
   });
 
+  public queryTodoList$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(TodoListActions.queryTodoItems),
+      concatMap(() =>
+        this.todoListService
+          .queryTodoList()
+          .pipe(
+            map(result => TodoListActions.replaceTodoItems(result))
+          )
+      )
+    );
+  });
 
+  constructor(
+    private actions$: Actions,
+    private todoListService: TodoListService
+  ) {}
 
-  constructor(private actions$: Actions) {}
+}
 
+// 模擬呼叫API
+@Injectable({ providedIn: 'root' })
+export class TodoListService {
+  queryTodoList() {
+    return of({
+      items: [
+        {
+          id: 1,
+          text: 'Todo 1 (from API)',
+          done: true,
+        },
+        {
+          id: 2,
+          text: 'Todo 2 (from API)',
+          done: false,
+        },
+      ],
+      count: 2,
+    });
+  }
 }

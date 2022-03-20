@@ -14,18 +14,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  todoItems: [
-    {
-      id: 1,
-      text: 'todo 1',
-      done: false
-    },
-    {
-      id: 2,
-      text: 'todo 2',
-      done: true
-    }
-  ],
+  todoItems: [],
   count: 0
 };
 
@@ -63,4 +52,10 @@ export const todoListReducer = createReducer(
       }
     ]
   })),
+
+  on(TodoListActions.replaceTodoItems, (state, action) => ({
+    ...state,
+    todoItems: action.items,
+    count: action.count
+  }))
 );
