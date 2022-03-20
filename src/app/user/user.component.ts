@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.select(undoneTodoItems).subscribe(data => console.log(data))
+    // this.store.select(undoneTodoItems).subscribe(data => console.log(data))
   }
 
 }
