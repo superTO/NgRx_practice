@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "ngrx-practice"
+  "defaultProject": "ngrx-practice",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
