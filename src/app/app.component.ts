@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private stores: Store) { }
 
   ngOnInit(): void {
-    this.stores.subscribe(data => console.log(data))
+    // this.stores.subscribe(data => console.log(data))
   }
 
 }

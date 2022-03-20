@@ -12,7 +12,7 @@ export class TodoListEffects {
 
   loadTodoLists$ = createEffect(() => {
     return this.actions$.pipe( 
-
+      
       ofType(TodoListActions.loadTodoLists),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
